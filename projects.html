@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Complete portfolio of software projects, infrastructure deployments, and consulting work by Stephen Ryan Pacifico.">
+    <meta name="theme-color" content="#0b0d0f">
+    <title>Projects — Stephen Ryan Pacifico</title>
+    <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        const savedTheme = localStorage.getItem('ryan-theme') || 'system';
+        document.documentElement.dataset.themePreference = savedTheme;
+        document.documentElement.dataset.theme = savedTheme === 'system' ? (matchMedia('(prefers-color-scheme:light)').matches ? 'light' : 'dark') : savedTheme;
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas class="background-code" data-background-code aria-hidden="true"></canvas>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header" data-header>
+        <a class="brand" href="index.html">
+            <span class="brand-mark">SRP</span>
+            <span>&lt;Stephen Ryan Pacifico/&gt;<small>Full-stack developer</small></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary">
+            <a href="index.html#work">Work</a>
+            <a href="index.html#capabilities">Capabilities</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <div class="theme-picker" data-theme-picker>
+                <button class="icon-button" type="button" data-theme-toggle aria-label="Choose color theme" aria-haspopup="menu" aria-expanded="false" title="Choose color theme">
+                    <svg class="theme-icon system-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2" /><path d="M8 21h8M12 17v4" /></svg>
+                    <svg class="theme-icon light-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" /></svg>
+                    <svg class="theme-icon dark-theme-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z" /></svg>
+                </button>
+                <div class="theme-menu" data-theme-menu role="menu" aria-label="Color theme" hidden>
+                    <button type="button" role="menuitemradio" data-theme-choice="system" aria-checked="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2" /><path d="M8 21h8M12 17v4" /></svg><span><strong>System</strong><small>Match your device</small></span></button>
+                    <button type="button" role="menuitemradio" data-theme-choice="light" aria-checked="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" /></svg><span><strong>Light</strong><small>Always light</small></span></button>
+                    <button type="button" role="menuitemradio" data-theme-choice="dark" aria-checked="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z" /></svg><span><strong>Dark</strong><small>Always dark</small></span></button>
+                </div>
+            </div>
+            <button class="icon-button menu-button" data-menu-toggle type="button" aria-label="Open navigation" aria-expanded="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+            </button>
+        </div>
+        <nav class="mobile-nav" data-mobile-nav>
+            <a href="index.html#work">Work</a>
+            <a href="index.html#capabilities">Capabilities</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox-overlay" id="lightbox" role="dialog" aria-label="Image viewer" aria-modal="true">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg></button>
+        <button class="lightbox-nav prev" id="lightbox-prev" aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg></button>
+        <button class="lightbox-nav next" id="lightbox-next" aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
+        <div class="lightbox-content" id="lightbox-content"></div>
+        <span class="lightbox-counter" id="lightbox-counter">1 / 1</span>
+    </div>
+
+    <!-- ===== MAIN ===== -->
+    <main id="main" class="projects-page">
+
+        <!-- HERO -->
+        <section class="page-hero project-hero reveal">
+            <div class="project-hero-copy">
+                <p class="eyebrow"><span></span>Selected work / 2016–2026</p>
+                <h1>Systems built<br><em>for real work.</em></h1>
+                <p>Production software, AI automation, infrastructure deployments, and consulting engagements designed around measurable operational needs—not portfolio exercises.</p>
+                <div class="project-hero-actions">
+                    <a class="button primary" href="#software">Explore projects<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 14 0M13 6l6 6-6 6" /></svg></a>
+                    <a class="button secondary" href="index.html">Back to home</a>
+                </div>
+            </div>
+            <div class="project-proof" aria-label="Portfolio summary">
+                <div class="proof-lead"><span>Portfolio at a glance</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-7" /></svg></div>
+                <div class="proof-grid">
+                    <div><strong>14</strong><span>documented projects &amp; engagements</span></div>
+                    <div><strong>10+</strong><span>years building and supporting systems</span></div>
+                    <div><strong>90+</strong><span>PCs across major shop deployments</span></div>
+                    <div><strong>4</strong><span>disciplines: software, AI, infrastructure, consulting</span></div>
+                </div>
+            </div>
+        </section>
+
+        <nav class="project-index" aria-label="Project categories">
+            <span>Jump to</span>
+            <a href="#software"><b>01</b>Software</a>
+            <a href="#infrastructure"><b>02</b>Infrastructure</a>
+            <a href="#consulting-work"><b>03</b>Consulting</a>
+            <a href="#community"><b>04</b>Community</a>
+        </nav>
+
+        <!-- ============================================================
+         SOFTWARE PROJECTS
+         ============================================================ -->
+        <section class="archive-list" id="software" aria-label="Software Projects">
+
+            <div class="project-section-head reveal"><div><p>01 / Product engineering</p><h2>Software &amp; AI systems</h2></div><span>Five production-minded applications spanning automation, recruitment, inventory, manufacturing, and monitoring.</span></div>
+
+            <!-- PROJECT 1: AI Social Media -->
+            <article class="archive-item reveal" id="social-media-platform">
+                <span class="archive-index">01</span>
+                <div>
+                    <p class="archive-type">AI Automation Platform • 2025</p>
+                    <h2>AI Content Generation &amp; Social Media Automation</h2>
+                    <p>
+                        Multi-brand AI-powered social media management platform
+                        designed to automate content creation, approval workflows,
+                        scheduling, image generation, and publishing across
+                        multiple business pages. The system integrates AI models,
+                        social media APIs, and workflow automation to reduce
+                        manual effort while maintaining content quality and
+                        consistency.
+                    </p>
+                    <p class="project-status"><span class="status-badge active"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5" /></svg>Production / Active</span></p>
+                    <ul class="tags">
+                        <li>C#</li>
+                        <li>MySQL</li>
+                        <li>Claude API</li>
+                        <li>OpenAI API</li>
+                        <li>Gemini API</li>
+                        <li>Facebook Graph API</li>
+                        <li>LinkedIn API</li>
+                        <li>Google Sheets</li>
+                        <li>Google Drive</li>
+                    </ul>
+                </div>
+                <div class="project-showcase" id="carousel-social-media">
+                    <button class="image-nav" data-carousel="social-media" data-prev aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg></button>
+                    <div class="carousel-slide"></div>
+                    <button class="image-nav" data-carousel="social-media" data-next aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
+                </div>
+            </article>
+
+            <!-- PROJECT 2: AI Recruitment -->
+            <article class="archive-item reveal" id="recruitment-platform">
+                <span class="archive-index">02</span>
+                <div>
+                    <p class="archive-type">AI Recruitment System • Current</p>
+                    <h2>AI Recruitment &amp; Candidate Assessment Platform</h2>
+                    <p>
+                        AI-powered recruitment platform designed to evaluate applicants,
+                        analyze resumes, assist recruiters, and streamline the hiring
+                        process through automation and intelligent scoring. Integrated
+                        with applicant tracking systems for seamless recruitment workflow.
+                    </p>
+                    <p class="project-status"><span class="status-badge active"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5" /></svg>Production / Active</span></p>
+                    <p class="project-access"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg>Private client platform</p>
+                    <ul class="tags">
+                        <li>C#</li>
+                        <li>MySQL</li>
+                        <li>Claude API</li>
+                        <li>OpenAI API</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="project-showcase" id="carousel-recruitment">
+                    <button class="image-nav" data-carousel="recruitment" data-prev aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg></button>
+                    <div class="carousel-slide"></div>
+                    <button class="image-nav" data-carousel="recruitment" data-next aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
+                </div>
+            </article>
+
+            <!-- PROJECT 3: Inventory Management (Scancode) -->
+            <article class="archive-item reveal" id="inventory-management">
+                <span class="archive-index">03</span>
+                <div>
+                    <p class="archive-type">Inventory Management • Scancode</p>
+                    <h2>Inventory Management System</h2>
+                    <p>
+                        Comprehensive inventory management system designed for
+                        tracking stock, managing purchase orders, receiving goods,
+                        and generating barcode labels. Includes automated email
+                        restocking alerts and accounting reports.
+                    </p>
+                    <p class="project-status"><span class="status-badge confidential"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5" /></svg>Confidential</span></p>
+                    <p class="note-text">Due to client confidentiality, application screenshots are not publicly available. Production outputs are displayed as evidence of system implementation.</p>
+                    <ul class="tags">
+                        <li>Inventory Tracking</li>
+                        <li>Purchase Orders</li>
+                        <li>Barcode Printing</li>
+                        <li>Label Printing</li>
+                        <li>Email Alerts</li>
+                        <li>Accounting Reports</li>
+                    </ul>
+                </div>
+                <div class="project-showcase" id="carousel-scancode">
+                    <button class="image-nav" data-carousel="scancode" data-prev aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg></button>
+                    <div class="carousel-slide"></div>
+                    <button class="image-nav" data-carousel="scancode" data-next aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
+                </div>
+            </article>
+
+            <!-- PROJECT 4: Food Manufacturing Labeling -->
+            <article class="archive-item reveal" id="labeling-system">
+                <span class="archive-index">04</span>
+                <div>
+                    <p class="archive-type">Manufacturing • Production</p>
+                    <h2>Food Manufacturing Labeling System</h2>
+                    <p>
+                        Product and nutrition label generation system for food
+                        manufacturing operations. Includes batch tracking,
+                        production monitoring, and quality assurance reporting.
+                        Used in actual manufacturing operations.
+                    </p>
+                    <p class="project-status"><span class="status-badge success"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6" /></svg>In Production</span></p>
+                    <ul class="tags">
+                        <li>Label Generation</li>
+                        <li>Nutrition Labels</li>
+                        <li>Batch Tracking</li>
+                        <li>Production Monitoring</li>
+                        <li>QA Reporting</li>
+                    </ul>
+                </div>
+                <div class="project-showcase" id="carousel-labeling">
+                    <button class="image-nav" data-carousel="labeling" data-prev aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg></button>
+                    <div class="carousel-slide"></div>
+                    <button class="image-nav" data-carousel="labeling" data-next aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
+                </div>
+            </article>
+
+            <!-- PROJECT 5: Computer Monitoring -->
+            <article class="archive-item reveal" id="monitoring-system">
+                <span class="archive-index">05</span>
+                <div>
+                    <p class="archive-type">Employee Monitoring • Deployed</p>
+                    <h2>Computer Monitoring System</h2>
+                    <p>
+                        Employee monitoring solution with screenshot capture,
+                        activity tracking, and cloud database storage. Built
+                        with C# and AWS infrastructure for reliable data
+                        collection and reporting.
+                    </p>
+                    <ul class="tags">
+                        <li>C#</li>
+                        <li>AWS</li>
+                        <li>MySQL</li>
+                        <li>Screenshot Capture</li>
+                        <li>Activity Tracking</li>
+                    </ul>
+                </div>
+                <div class="project-showcase" id="carousel-monitoring">
+                    <button class="image-nav" data-carousel="monitoring" data-prev aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg></button>
+                    <div class="carousel-slide"></div>
+                    <button class="image-nav" data-carousel="monitoring" data-next aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- ============================================================
+         INFRASTRUCTURE PROJECTS
+         ============================================================ -->
+        <section class="archive-list" id="infrastructure" aria-label="Infrastructure Projects">
+
+            <div class="project-section-head reveal"><div><p>02 / Physical systems</p><h2>Infrastructure deployments</h2></div><span>End-to-end office, commercial, and education environments built for reliability and maintainability.</span></div>
+
+            <!-- PROJECT 6: ACE Outsource Solution -->
+            <article class="archive-item reveal" id="ace-outsource">
+                <span class="archive-index">06</span>
+                <div>
+                    <p class="archive-type">Office Infrastructure • Deployed</p>
+                    <h2>ACE Outsource Solution Office Setup</h2>
+                    <p>
+                        Complete office infrastructure deployment including
+                        50 agent PCs, 5 admin PCs, VLAN segmentation, printer
+                        management, and network design following IT standards.
+                    </p>
+                    <ul class="tags">
+                        <li>50 Agent PCs</li>
+                        <li>5 Admin PCs</li>
+                        <li>VLAN Segmentation</li>
+                        <li>Printer Management</li>
+                        <li>Network Design</li>
+                        <li>IT Standards</li>
+                    </ul>
+                </div>
+                <div class="archive-art project-cyan">
+                    <div style="display:flex; align-items:center; justify-content:center; width:70%; height:60%; background:rgba(22,174,181,0.15); border-radius:18px; border:1px solid rgba(255,255,255,0.08);">
+                        <span style="font:600 2rem var(--mono); color:var(--project);">50+</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PROJECT 7: Computer Shop Deployments -->
+            <article class="archive-item reveal" id="computer-shops">
+                <span class="archive-index">07</span>
+                <div>
+                    <p class="archive-type">Computer Shop Deployments • Multiple Locations</p>
+                    <h2>Computer Shop Deployments</h2>
+                    <p>
+                        End-to-end computer shop deployment including PC assembly,
+                        network setup, software installation, and maintenance.
+                        Projects include 10-PC PisoNet, 30-PC Internet Cafe,
+                        and 50-PC Internet Cafe installations.
+                    </p>
+                    <ul class="tags">
+                        <li>PC Assembly</li>
+                        <li>Network Setup</li>
+                        <li>Software Installation</li>
+                        <li>Maintenance</li>
+                        <li>10-PC PisoNet</li>
+                        <li>30-PC Internet Cafe</li>
+                        <li>50-PC Internet Cafe</li>
+                    </ul>
+                </div>
+                <div class="archive-art project-orange">
+                    <div style="display:flex; align-items:center; justify-content:center; width:70%; height:60%; background:rgba(231,119,50,0.15); border-radius:18px; border:1px solid rgba(255,255,255,0.08);">
+                        <span style="font:600 2rem var(--mono); color:var(--project);">90+ PCs</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PROJECT 8: Educational Infrastructure -->
+            <article class="archive-item reveal" id="educational-infra">
+                <span class="archive-index">08</span>
+                <div>
+                    <p class="archive-type">Educational Infrastructure • Deployed</p>
+                    <h2>Educational Infrastructure Projects</h2>
+                    <p>
+                        School technology infrastructure deployments including
+                        computer laboratories, teacher laptops, WiFi deployment,
+                        and LAN infrastructure for educational institutions.
+                    </p>
+                    <ul class="tags">
+                        <li>Computer Labs</li>
+                        <li>Teacher Laptops</li>
+                        <li>WiFi Deployment</li>
+                        <li>LAN Infrastructure</li>
+                        <li>Computer Lab Setup</li>
+                    </ul>
+                </div>
+                <div class="archive-art project-green">
+                    <div style="display:flex; align-items:center; justify-content:center; width:70%; height:60%; background:rgba(81,168,117,0.15); border-radius:18px; border:1px solid rgba(255,255,255,0.08);">
+                        <svg class="archive-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-5 9 5-9 5-9-5Z" /><path d="M7 12.5V17c3 2 7 2 10 0v-4.5M21 10v6" /></svg>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- ============================================================
+         CONSULTING PROJECTS
+         ============================================================ -->
+        <section class="archive-list" id="consulting-work" aria-label="Consulting Projects">
+
+            <div class="project-section-head reveal"><div><p>03 / Decision support</p><h2>Technology consulting</h2></div><span>Practical guidance for better vendors, workflows, timelines, software decisions, and implementation plans.</span></div>
+
+            <!-- PROJECT 9-13: Consulting -->
+            <article class="archive-item reveal" id="consulting">
+                <span class="archive-index">09-13</span>
+                <div>
+                    <p class="archive-type">Business Consulting • 2016–Present</p>
+                    <h2>Technology &amp; Business Consulting</h2>
+                    <p>
+                        Comprehensive consulting services helping organizations
+                        improve operations, select technology solutions, and
+                        optimize workflows.
+                    </p>
+                    <div class="consulting-grid">
+                        <div class="consulting-item">
+                            <strong>09</strong>
+                            <p>Manufacturing Process Consulting — Process analysis, workflow optimization, production recommendations</p>
+                        </div>
+                        <div class="consulting-item">
+                            <strong>10</strong>
+                            <p>Vendor Evaluation — Technical assessment, product comparison, procurement recommendations</p>
+                        </div>
+                        <div class="consulting-item">
+                            <strong>11</strong>
+                            <p>Timeline Auditing — Project review, schedule validation, delivery assessment</p>
+                        </div>
+                        <div class="consulting-item">
+                            <strong>12</strong>
+                            <p>Software Selection Consulting — Requirements gathering, vendor comparison, implementation recommendations</p>
+                        </div>
+                        <div class="consulting-item" style="grid-column:1/-1;">
+                            <strong>13</strong>
+                            <p>Workflow Improvement Consulting — Business process mapping, automation opportunities, efficiency improvements</p>
+                        </div>
+                    </div>
+                    <ul class="tags">
+                        <li>Process Analysis</li>
+                        <li>Workflow Optimization</li>
+                        <li>Technical Assessment</li>
+                        <li>Vendor Evaluation</li>
+                        <li>Project Review</li>
+                        <li>Requirements Gathering</li>
+                        <li>Business Process Mapping</li>
+                        <li>Automation</li>
+                    </ul>
+                </div>
+                <div class="archive-art project-violet">
+                    <div style="display:flex; align-items:center; justify-content:center; width:70%; height:60%; background:rgba(116,81,248,0.15); border-radius:18px; border:1px solid rgba(255,255,255,0.08);">
+                        <svg class="archive-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5h6M9 3h6v4H9zM6 5H4v16h16V5h-2M8 12h8M8 16h8" /></svg>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- ============================================================
+         COMMUNITY SERVICE
+         ============================================================ -->
+        <section class="archive-list" id="community" aria-label="Community Service">
+
+            <div class="project-section-head reveal"><div><p>04 / Community</p><h2>Technical support that matters</h2></div><span>Long-running volunteer support that keeps students, teachers, and community members connected and productive.</span></div>
+
+            <!-- PROJECT 14: Volunteer Technical Support -->
+            <article class="archive-item reveal" id="volunteer-support">
+                <span class="archive-index">14</span>
+                <div>
+                    <p class="archive-type">Community Service • 2016–Present</p>
+                    <h2>Volunteer Technical Support</h2>
+                    <p>
+                        Provided free technical support for students, teachers,
+                        and community members. Only replacement parts were charged
+                        when necessary.
+                    </p>
+                    <ul class="tags">
+                        <li>Laptop Repair</li>
+                        <li>Desktop Repair</li>
+                        <li>Software Troubleshooting</li>
+                        <li>Data Recovery</li>
+                        <li>Computer Setup</li>
+                        <li>Performance Optimization</li>
+                    </ul>
+                </div>
+                <div class="archive-art project-green">
+                    <div style="display:flex; align-items:center; justify-content:center; width:70%; height:60%; background:rgba(81,168,117,0.15); border-radius:18px; border:1px solid rgba(255,255,255,0.08);">
+                        <svg class="archive-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z" /></svg>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- ============================================================
+         CONTACT
+         ============================================================ -->
+        <section class="contact-section reveal" id="contact">
+            <div class="contact-copy">
+                <p class="eyebrow"><span></span>Start a conversation</p>
+                <h2>Get in touch<br><em>with me.</em></h2>
+                <p class="contact-note">Whether you are planning a project, hiring for a role, or improving an existing system, share what you are working on and I will get back to you.</p>
+                <a class="contact-link" href="mailto:stephenryanpacifico@yahoo.com.ph">stephenryanpacifico@yahoo.com.ph<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 14 0M13 6l6 6-6 6" /></svg></a>
+            </div>
+            <form class="contact-form" data-contact-form>
+                <label for="contact-name">Name</label>
+                <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                <label for="contact-email">Email</label>
+                <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" rows="6" placeholder="Tell me about your project, role, or challenge..." required></textarea>
+                <button class="button primary" type="submit">Request the CV<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 18-8-8 18-2-8-8-2Z" /><path d="m11 13 5-5" /></svg></button>
+                <p class="form-note" aria-live="polite">Fill out the form below and submit your request. Once your request is successfully submitted, the CV will be made available to you.</p>
+            </form>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <a class="brand" href="#main">
+            <span class="brand-mark">SRP</span>
+            <span>
+                Stephen Ryan Pacifico
+                <small>Business Software Developer • IT Consultant • AI Automation Specialist</small>
+            </span>
+        </a>
+        <p>© <span data-year></span> Stephen Ryan Pacifico</p>
+        <div>
+            <a href="https://api.whatsapp.com/send?phone=639558448577" target="_blank" rel="noopener noreferrer">
+                WhatsApp: +63 955 844 8577
+            </a>
+            <a href="https://www.linkedin.com/in/stephen-pacifico03241996/" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+            </a>
+            <a class="back-to-top-button" href="#main">
+                Back to top
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 19V5M6 11l6-6 6 6" />
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <!-- ===== CHATBOT ===== -->
+    <button id="chatbot-toggle" aria-label="Open chat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /><path d="M8 10h.01M12 10h.01M16 10h.01" /></svg></button>
+    <div id="chatbot-container" role="dialog" aria-label="Chatbot">
+        <div class="chatbot-header">
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" /></svg>  Shekie AI Assistant</span>
+            <button id="chatbot-close" aria-label="Close chat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg></button>
+        </div>
+        <div id="chatbot-messages">
+            <div class="bot-message">
+                Hi! 👋 I'm Shekie, Ryan's AI Assistant.<br><br>
+
+                I can help you learn more about Ryan's experience,
+                skills, projects, and professional background.<br><br>
+
+                <strong>Hiring for a role?</strong><br>
+                Send me a job posting and I can assess how well Ryan
+                matches the position.<br><br>
+
+                What would you like to know?
+            </div>
+        </div>
+        <div class="chatbot-input">
+
+            <input type="text"
+                   id="chat-input"
+                   placeholder="Ask me anything..."
+                   aria-label="Type your message">
+
+            <!-- Hidden file picker -->
+            <input type="file"
+                   id="job-file-input"
+                   accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+                   hidden>
+
+            <!-- Tiny attachment button -->
+            <button type="button"
+                    id="attach-btn"
+                    class="chat-attach-btn"
+                    aria-label="Attach job posting"
+                    title="Attach job posting">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M21.44 11.05l-8.49 8.49a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.82-2.83l8.49-8.48" />
+                </svg>
+
+            </button>
+
+            <button type="button"
+                    id="send-btn"
+                    aria-label="Send message">
+                Send
+            </button>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
